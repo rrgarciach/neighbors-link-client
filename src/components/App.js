@@ -1,27 +1,24 @@
-import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+// Component to handle App's main layout/template.
+import React, {PropTypes} from 'react';
+import Header from './common/Header'
 
-// This is a class-based component because the current
-// version of hot reloading won't hot reload a stateless
-// component at the top-level.
 class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <IndexLink to="/">Home</IndexLink>
-        {' | '}
-        <Link to="/fuel-savings">Demo App</Link>
-        {' | '}
-        <Link to="/about">About</Link>
-        <br/>
-        {this.props.children}
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-12">
+                        <Header/>
+                        {this.props.children}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 App.propTypes = {
-  children: PropTypes.element
+    children: PropTypes.object.isRequired
 };
 
 export default App;
